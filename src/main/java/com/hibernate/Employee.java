@@ -20,6 +20,7 @@ public class Employee {
 	private String lastName;
 	
 	@OneToOne							// OneToOne (unidirectional) relationship  employee table contains address field (be default address primary key i.e id) 
+	@JoinColumn(name ="ADD_ID")      // JoinColumn is used to customise column name.
 	private Address address;           // employee entity contain address id 
 										// address_id column is added into employee table
 												
