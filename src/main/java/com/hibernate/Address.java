@@ -2,6 +2,7 @@ package com.hibernate;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToOne;
 
 @Entity
@@ -13,7 +14,7 @@ public class Address {
 	private String street;
 	private String city;
 
-	@ManyToOne
+	@ManyToOne								// internally join column is used . 
 	private Employee employee;            // we have to use this annotation in both classes to  make OneToOne bidirectional
 
 	public Employee getEmployee() {

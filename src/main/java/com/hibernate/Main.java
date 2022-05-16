@@ -31,7 +31,7 @@ public class Main {
 		
 		employee.setFirstName("Shubham");
 		employee.setLastName("kushwah");
-		employee.setAddress(addressList);
+	//	employee.setAddress(addressList);
 		
 			
 		 EntityManager factory =   EntityManagerUtil.getEntityManager();          
