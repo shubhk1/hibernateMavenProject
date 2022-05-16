@@ -1,5 +1,7 @@
 package com.hibernate;
 
+import java.util.List;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -20,17 +22,14 @@ public class Employee {
 	private String firstName;
 	private String lastName;
 	
-	@OneToOne(cascade =  CascadeType.ALL)								// OneToOne (unidirectional) relationship  employee table contains address field (be default address primary key i.e id) 
-	//@JoinColumn(name ="ADD_ID")      		// JoinColumn is used to customise column name.
-	@PrimaryKeyJoinColumn
-	private Address address;          	 	// employee entity contain address id 
-											// address_id column is added into employee table
-											// cascade =  cascadeType.ALL is used for shared primary key ie id both uses same id. 1-1 
-	public Address getAddress() {
+	@OneToMany                         				// we can used only one either joincoloumn or mappedby at one time. 
+	private List <Address> address;
+														
+	public List<Address> getAddress() {
 		return address;
 	}
 
-	public void setAddress(Address address) {
+	public void setAddress(List<Address> address) {
 		this.address = address;
 	}
 
