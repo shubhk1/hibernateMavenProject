@@ -38,6 +38,8 @@ public class Main {
 		 factory.getTransaction().begin();
 	
 		 factory.persist(employee);       // saving data into employee table
+		address1.setEmployee(employee);
+		address2.setEmployee(employee);
 		 factory.persist(address1);
 		 factory.persist(address2);
 		 factory.getTransaction().commit();

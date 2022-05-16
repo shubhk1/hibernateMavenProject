@@ -2,6 +2,7 @@ package com.hibernate;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 // this annotation is used to create/map Address table
@@ -12,6 +13,16 @@ public class Address {
 	private String street;
 	private String city;
 
+	@ManyToOne
+	private Employee employee;            // we have to use this annotation in both classes to  make OneToOne bidirectional
+
+	public Employee getEmployee() {
+		return employee;
+	}
+
+	public void setEmployee(Employee employee) {
+		this.employee = employee;
+	}
 	
 	public Long getId() {
 		return id;

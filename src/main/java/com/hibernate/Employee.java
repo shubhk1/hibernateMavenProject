@@ -22,9 +22,9 @@ public class Employee {
 	private String firstName;
 	private String lastName;
 	
-	@OneToMany                         				// we can used only one either joincoloumn or mappedby at one time. 
-	//@JoinColumn									// add adddress_id column into address table . i.e there is no third table.
-	@JoinColumn(name = "emp_id")
+	@OneToMany(mappedBy = "employee")           // we can used only one either joincoloumn or mappedby at one time to join coloumn .no third table is created.
+	//@JoinColumn								// add adddress_id column into address table . i.e there is no third table.
+//	@JoinColumn(name = "emp_id")
 	private List <Address> address;
 														
 	public List<Address> getAddress() {
