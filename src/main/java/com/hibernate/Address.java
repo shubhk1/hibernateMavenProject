@@ -11,7 +11,7 @@ import javax.persistence.PrimaryKeyJoinColumn;
 public class Address {
 
 	@Id
-	private Long id;
+	private Long id;                            // // Id is primary key 
 	private String street;
 	private String city;
 

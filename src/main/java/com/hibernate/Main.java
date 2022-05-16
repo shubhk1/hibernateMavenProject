@@ -18,11 +18,14 @@ public class Main {
 		employee.setId(1L);
 		employee.setFirstName("Shubham");
 		employee.setLastName("kushwah");
+		
 					
 		Address address = new Address();
 		address.setId(101L);		
 		address.setStreet("Tajganj");
 		address.setCity("Agra");
+		
+		employee.setAddress(address);
 			
 		 EntityManager factory =   EntityManagerUtil.getEntityManager();          
 		 factory.getTransaction().begin();

@@ -14,10 +14,22 @@ import javax.persistence.PrimaryKeyJoinColumn;
 // this annotation is used to create/map Employee table .
 public class Employee {
 
-	@Id
+	@Id                             // Id is primary key 
 	private Long id;
 	private String firstName;
 	private String lastName;
+	
+	@OneToOne							// OneToOne (unidirectional) relationship  employee table contains address field (be default address primary key i.e id) 
+	private Address address;           // employee entity contain address id 
+										// address_id column is added into employee table
+												
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
+	}
 
 	public Long getId() {
 		return id;
