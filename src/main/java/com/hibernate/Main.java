@@ -25,7 +25,9 @@ public class Main {
 		address.setStreet("Tajganj");
 		address.setCity("Agra");
 		
+		address.setEmployee(employee);		      // OneToOne bidirectional both table contain details of each other.
 		employee.setAddress(address);
+		
 			
 		 EntityManager factory =   EntityManagerUtil.getEntityManager();          
 		 factory.getTransaction().begin();

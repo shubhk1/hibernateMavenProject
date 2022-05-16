@@ -11,9 +11,20 @@ import javax.persistence.PrimaryKeyJoinColumn;
 public class Address {
 
 	@Id
-	private Long id;                            // // Id is primary key 
+	private Long id; 					 // Id is primary key
 	private String street;
 	private String city;
+
+	@OneToOne					// for making OneToOne (Bidirectional) relationship  employee table contains address field and address contains employee field (be default address primary key i.e id) 
+	private Employee employee;            // we have to use this annotation in both classes to  make OneToOne bidirectional
+
+	public Employee getEmployee() {
+		return employee;
+	}
+
+	public void setEmployee(Employee employee) {
+		this.employee = employee;
+	}
 
 	public Long getId() {
 		return id;
