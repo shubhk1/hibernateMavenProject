@@ -15,25 +15,25 @@ public class Main {
 	public static void main(String[] args) {
 		
 		Employee employee = new Employee();
-		employee.setId(1L);
+		
 		employee.setFirstName("Shubham");
 		employee.setLastName("kushwah");
 		
-					
 		Address address = new Address();
-		address.setId(101L);		
+			
 		address.setStreet("Tajganj");
 		address.setCity("Agra");
-		
-		address.setEmployee(employee);		      // OneToOne bidirectional both table contain details of each other.
-		employee.setAddress(address);
-		
 			
 		 EntityManager factory =   EntityManagerUtil.getEntityManager();          
 		 factory.getTransaction().begin();
 		 factory.persist(employee);       // saving data into employee table
+		 
+		 address.setId(employee.getId());     // getting id from employee and setting into address 
+		 employee.setAddress(address);        // 
+		 
 		 factory.persist(address);        // saving data into address table
 		 
+		 factory.persist(employee); 
 	 
 		 factory.getTransaction().commit();
 		 factory.close();

@@ -15,15 +15,17 @@ import javax.persistence.PrimaryKeyJoinColumn;
 public class Employee {
 
 	@Id                             // Id is primary key 
+	@GeneratedValue(strategy = GenerationType.IDENTITY)        // id is automatic generated and through which it is also assigned to address .
 	private Long id;
 	private String firstName;
 	private String lastName;
 	
-	@OneToOne							// OneToOne (unidirectional) relationship  employee table contains address field (be default address primary key i.e id) 
-	@JoinColumn(name ="ADD_ID")      // JoinColumn is used to customise column name.
-	private Address address;           // employee entity contain address id 
-										// address_id column is added into employee table
-												
+	@OneToOne(cascade =  CascadeType.ALL)								// OneToOne (unidirectional) relationship  employee table contains address field (be default address primary key i.e id) 
+	//@JoinColumn(name ="ADD_ID")      		// JoinColumn is used to customise column name.
+	@PrimaryKeyJoinColumn
+	private Address address;          	 	// employee entity contain address id 
+											// address_id column is added into employee table
+											// cascade =  cascadeType.ALL is used for shared primary key ie id both uses same id. 1-1 
 	public Address getAddress() {
 		return address;
 	}
